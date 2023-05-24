@@ -1,0 +1,30 @@
+﻿@using System.Linq.Expressions;;
+@inject IBakingPlanToppingRepository repository;
+@inject IToppingRepository toppingrepository;
+@inject ToastService toastService;
+
+<h1>Topping List</h1>
+
+
+@code {
+	[Parameter]
+	public int BakingPlanningId { get; set; }
+
+	private PageRequest<BakingPlanTopping> pageRequest = new();
+	private Crud<BakingPlanTopping> baseCrud;
+
+	private PageResult<Topping> toppingPage;
+	private PageRequest<Topping> toppingPageRequest = new();
+
+	protected override async Task OnParametersSetAsync()
+	{
+		toppingPageRequest.Where(e => e.)
+		toppingPage = await toppingrepository.FetchPageAsync(toppingPageRequest);
+	}
+
+	private void ClearSelection()
+	{
+		
+	}
+
+}
